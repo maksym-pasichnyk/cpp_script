@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "configure",
+            "program": "cmake",
+            "args": ["-G Ninja", "-B cmake-build-debug"]
+        },
+        {
+            "type": "command",
+            "name": "build",
+            "dependsOn": ["configure"],
+            "program": "cmake",
+            "args": ["--build", "cmake-build-debug"]
+        },
+        {
+            "type": "command",
+            "name": "run",
+            "dependsOn": ["build"],
+            "program": "cpp_script",
+            "args": [],
+            "workingDir": "cmake-build-debug",
+        }
+    ]
+}
